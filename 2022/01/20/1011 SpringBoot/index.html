@@ -1,0 +1,657 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1011 SpringBoot spring mvc配置繁琐费时，而spring boot秉承习惯优于配置，根据项目引入的jar包来判断用户的使用习惯，进行自动配置。（也可以关闭自动配置来手动配置） spring boot内置tomcat等web服务器，此外与spring mvc web项目不同的是，spring boot打包成jar包。 spring boot适用于中小型项目，由于其自动化程度很">
+<meta property="og:type" content="article">
+<meta property="og:title" content="测试文章">
+<meta property="og:url" content="http://example.com/2022/01/20/1011%20SpringBoot/index.html">
+<meta property="og:site_name" content="Holiday">
+<meta property="og:description" content="1011 SpringBoot spring mvc配置繁琐费时，而spring boot秉承习惯优于配置，根据项目引入的jar包来判断用户的使用习惯，进行自动配置。（也可以关闭自动配置来手动配置） spring boot内置tomcat等web服务器，此外与spring mvc web项目不同的是，spring boot打包成jar包。 spring boot适用于中小型项目，由于其自动化程度很">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:/Users/peng.zhou.TE/AppData/Roaming/Typora/typora-user-images/image-20211011085610046.png">
+<meta property="og:image" content="c:/Users/peng.zhou.TE/AppData/Roaming/Typora/typora-user-images/image-20211011085830290.png">
+<meta property="og:image" content="c:/Users/peng.zhou.TE/AppData/Roaming/Typora/typora-user-images/image-20211011090109028.png">
+<meta property="og:image" content="c:/Users/peng.zhou.TE/AppData/Roaming/Typora/typora-user-images/image-20211011090121517.png">
+<meta property="og:image" content="c:/Users/peng.zhou.TE/AppData/Roaming/Typora/typora-user-images/image-20211011092836455.png">
+<meta property="og:image" content="c:/Users/peng.zhou.TE/AppData/Roaming/Typora/typora-user-images/image-20211011094728908.png">
+<meta property="og:image" content="c:/Users/peng.zhou.TE/AppData/Roaming/Typora/typora-user-images/image-20211011093016860.png">
+<meta property="og:image" content="c:/Users/peng.zhou.TE/AppData/Roaming/Typora/typora-user-images/image-20211011100759644.png">
+<meta property="og:image" content="c:/Users/peng.zhou.TE/AppData/Roaming/Typora/typora-user-images/image-20211011100037480.png">
+<meta property="og:image" content="c:/Users/peng.zhou.TE/AppData/Roaming/Typora/typora-user-images/image-20211011141159357.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200706123554691.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjkzMTcx,size_1,color_FFFFFF,t_70">
+<meta property="og:image" content="c:/Users/peng.zhou.TE/AppData/Roaming/Typora/typora-user-images/image-20211011160401618.png">
+<meta property="og:image" content="https://oscimg.oschina.net/oscnet/a187a016f231884b2314d723b16d01e93a8.png">
+<meta property="og:image" content="c:/Users/peng.zhou.TE/AppData/Roaming/Typora/typora-user-images/image-20211012091246557.png">
+<meta property="og:image" content="c:/Users/peng.zhou.TE/AppData/Roaming/Typora/typora-user-images/image-20211012091337958.png">
+<meta property="og:image" content="c:/Users/peng.zhou.TE/AppData/Roaming/Typora/typora-user-images/image-20211012091611796.png">
+<meta property="og:image" content="c:/Users/peng.zhou.TE/AppData/Roaming/Typora/typora-user-images/image-20211012091827417.png">
+<meta property="og:image" content="c:/Users/peng.zhou.TE/AppData/Roaming/Typora/typora-user-images/image-20211012092031657.png">
+<meta property="og:image" content="c:/Users/peng.zhou.TE/AppData/Roaming/Typora/typora-user-images/image-20211012140153281.png">
+<meta property="article:published_time" content="2022-01-20T11:56:30.000Z">
+<meta property="article:modified_time" content="2022-01-21T06:09:17.339Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="原创">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="c:/Users/peng.zhou.TE/AppData/Roaming/Typora/typora-user-images/image-20211011085610046.png">
+  
+  
+  <title>测试文章 - Holiday</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"BPogtvuglCu9iHpB98eDWh3O-gzGzoHsz","app_key":"XkPp43uGzvkzmXGb2i5wpTUR","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Holiday&#39;s home</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="测试文章">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-01-20 19:56" pubdate>
+        January 20, 2022 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6.4k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      53 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">测试文章</h1>
+            
+            <div class="markdown-body">
+              <p>1011 SpringBoot</p>
+<p>spring mvc配置繁琐费时，而spring boot秉承习惯优于配置，根据项目引入的jar包来判断用户的使用习惯，进行自动配置。（也可以关闭自动配置来手动配置）</p>
+<p>spring boot内置tomcat等web服务器，此外与spring mvc web项目不同的是，spring boot打包成jar包。</p>
+<p>spring boot适用于中小型项目，由于其自动化程度很高，发生问题不容易查找。也适用于微服务，spring boot很适合。</p>
+<p><img src="C:\Users\peng.zhou.TE\AppData\Roaming\Typora\typora-user-images\image-20211011085610046.png" srcset="/img/loading.gif" lazyload alt="image-20211011085610046"></p>
+<p><img src="C:\Users\peng.zhou.TE\AppData\Roaming\Typora\typora-user-images\image-20211011085830290.png" srcset="/img/loading.gif" lazyload alt="image-20211011085830290"></p>
+<p><img src="C:\Users\peng.zhou.TE\AppData\Roaming\Typora\typora-user-images\image-20211011090109028.png" srcset="/img/loading.gif" lazyload alt="image-20211011090109028"></p>
+<p><img src="C:\Users\peng.zhou.TE\AppData\Roaming\Typora\typora-user-images\image-20211011090121517.png" srcset="/img/loading.gif" lazyload alt="image-20211011090121517"></p>
+<p>配置maven，将仓库设置为自定义仓库</p>
+<p>配置完maven后，刷新，等待将包引入。</p>
+<p><img src="C:\Users\peng.zhou.TE\AppData\Roaming\Typora\typora-user-images\image-20211011092836455.png" srcset="/img/loading.gif" lazyload alt="image-20211011092836455"></p>
+<p>若pom.xml插件报错</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>在下面加上<version>2.5.5</version>即可解决。</p>
+<p>可以将jar包拷至某个文件夹下</p>
+<p><img src="C:\Users\peng.zhou.TE\AppData\Roaming\Typora\typora-user-images\image-20211011094728908.png" srcset="/img/loading.gif" lazyload alt="image-20211011094728908"></p>
+<p>cmd进入该文件夹，然后运行java -jar jar名字，启动项目（spring boot内置tomcat）</p>
+<p><img src="C:\Users\peng.zhou.TE\AppData\Roaming\Typora\typora-user-images\image-20211011093016860.png" srcset="/img/loading.gif" lazyload alt="image-20211011093016860"></p>
+<p>spring boot-starter 起步依赖</p>
+<p><img src="C:\Users\peng.zhou.TE\AppData\Roaming\Typora\typora-user-images\image-20211011100759644.png" srcset="/img/loading.gif" lazyload alt="image-20211011100759644"></p>
+<p>通过在application.properties中手动配置</p>
+<p>更改运行的端口号：server.port=9090</p>
+<p>目录结构</p>
+<ul>
+<li><strong>pom.xml</strong>：是项目中的Maven依赖，因为Springboot使用Maven来管理外部jar包依赖，我们只需填写依赖名称配置即可引入该依赖，在本系统中引入Spring web模块(Springmvc)和Thymeleaf的依赖.我们不需要自己去招相关jar包。</li>
+<li><strong>application.properties</strong>: 编写Springboot与各框架整合的一些配置内容。</li>
+<li><strong>controller</strong>：用来编写控制器，主要负责处理请求以及和视图(Thymeleaf)绑定。</li>
+<li><strong>static</strong>：用于存放静态资源，例如html、JavaScript、css以及图片等。</li>
+<li><strong>templates</strong>：用来存放模板引擎Thymeleaf(本质依然是.html文件)</li>
+</ul>
+<p><img src="C:\Users\peng.zhou.TE\AppData\Roaming\Typora\typora-user-images\image-20211011100037480.png" srcset="/img/loading.gif" lazyload alt="image-20211011100037480"></p>
+<p><img src="C:\Users\peng.zhou.TE\AppData\Roaming\Typora\typora-user-images\image-20211011141159357.png" srcset="/img/loading.gif" lazyload alt="image-20211011141159357"></p>
+<p>设置spring boot启动图标，在resources中新建banner.txt文本，将文本图标写入。</p>
+<p>关闭启动图标，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//关闭banner</span><br>       SpringApplication sa = <span class="hljs-keyword">new</span> SpringApplication(BootApplication.class);<br>       sa.setBannerMode(Banner.Mode.OFF);<br>       sa.run(args);<br></code></pre></td></tr></table></figure>
+
+
+
+<p>不想开启自动配置（以数据库连接为例）</p>
+<p>将**Application类的@SpringBootApplication改为以下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@SpringBootApplication(exclude= &#123;DataSourceAutoConfiguration.class&#125;)</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p>spring boot自动配置的原理</p>
+<p>在main中新建webapp文件夹，新建helllo.html，启动spring boot项目，也可以运行。</p>
+<p>但若将hello.html放在webapp下的WEB-INF文件夹中，则无法运行。（spring boot2.5.5版本中，controller映射也不起作用）</p>
+<p>访问WEB-INF中的jsp文件，由于spring boot不支持jsp文件，故需要在pom.xml中引用包</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.tomcat.embed<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>tomcat-embed-jasper<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>javax.servlet<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>jstl<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p>创建Thymleaf项目</p>
+<p>除了在web中沟选Spring web外，还要在Template Engines中勾选Thymleaf</p>
+<p><img src="https://img-blog.csdnimg.cn/20200706123554691.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjkzMTcx,size_1,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>如果创建项目时没有勾选依赖也不要紧，在pom.xml中添加以下依赖：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>可以将html文件放入resources文件夹下的templates文件夹中，</p>
+<p><img src="C:\Users\peng.zhou.TE\AppData\Roaming\Typora\typora-user-images\image-20211011160401618.png" srcset="/img/loading.gif" lazyload alt="image-20211011160401618"></p>
+<p>然后在pom.xml中引入</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- thymeleaf依赖 --&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>     <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>在controller中进行映射</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloController</span> </span>&#123;<br><br>    <span class="hljs-meta">@RequestMapping(&quot;/hello&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">hello</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;hello&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>appliancation.properties中配不配前后缀都可以</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-meta">spring.mvc.view.prefix</span>=<span class="hljs-string">/templates/</span><br><span class="hljs-meta">spring.mvc.view.suffix</span>=<span class="hljs-string">.html</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p>热部署</p>
+<p>Thymleaf语法</p>
+<p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/769977">Thymeleaf一篇就够了-阿里云开发者社区 (aliyun.com)</a></p>
+<p>resources目录下的templates文件夹下面创建一个叫index.html的文件，咱们在这个html文件中的<code>&lt;html&gt;</code>标签修改为<code>&lt;html xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;</code>这样在Thymeleaf中就可以使用Thymeleaf的语法和规范</p>
+<p>Yaml</p>
+<p>可以表示更加丰富的数据类型</p>
+<p>冒号加缩进表示层级结构，不可使用tab，可使用空格键但要保证同一层级下空格要对齐</p>
+<p>对大小写敏感</p>
+<p>支持flow流式语法表示对象</p>
+<h2 id="Thymeleaf中显示ajax请求所需依赖"><a href="#Thymeleaf中显示ajax请求所需依赖" class="headerlink" title="Thymeleaf中显示ajax请求所需依赖"></a>Thymeleaf中显示ajax请求所需依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--所需依赖--&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br><span class="hljs-comment">&lt;!--去除HTML 严格规范--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>net.sourceforge.nekohtml<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>nekohtml<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.9.22<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="控制器中支持ajax请求的注解-ResponseBody"><a href="#控制器中支持ajax请求的注解-ResponseBody" class="headerlink" title="控制器中支持ajax请求的注解@ResponseBody"></a>控制器中支持ajax请求的注解@ResponseBody</h2><p>springboot与SSM中的控制器支持ajax请求方法没有区别</p>
+<p>@ResponseBody写在控制器的方法上，只表示本方法适合ajax请求</p>
+<p>@ResponseBody写在控制器类上，表示该类中所有方法适合ajax请求</p>
+<h2 id="怎样在Thymeleaf中显示ajax请求到的数据"><a href="#怎样在Thymeleaf中显示ajax请求到的数据" class="headerlink" title="怎样在Thymeleaf中显示ajax请求到的数据"></a>怎样在Thymeleaf中显示ajax请求到的数据</h2><p><img src="https://oscimg.oschina.net/oscnet/a187a016f231884b2314d723b16d01e93a8.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h1 id="1012-Spring-boot与Mybatis的整合"><a href="#1012-Spring-boot与Mybatis的整合" class="headerlink" title="1012-Spring boot与Mybatis的整合"></a>1012-Spring boot与Mybatis的整合</h1><h2 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h2><p>1、引用以下stater</p>
+<p><img src="C:\Users\peng.zhou.TE\AppData\Roaming\Typora\typora-user-images\image-20211012091246557.png" srcset="/img/loading.gif" lazyload alt="image-20211012091246557"></p>
+<p>2、配置maven使用本地仓库</p>
+<p><img src="C:\Users\peng.zhou.TE\AppData\Roaming\Typora\typora-user-images\image-20211012091337958.png" srcset="/img/loading.gif" lazyload alt="image-20211012091337958"></p>
+<p>3、配置application.yml，主要配置数据库相关信息，若不配置，启动spring boot会报错</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">datasource:</span><br>    <span class="hljs-attr">driver-class-name:</span> <span class="hljs-string">com.mysql.jdbc.Driver</span><br>    <span class="hljs-attr">url:</span> <span class="hljs-string">jdbc:mysql://127.0.0.1:3308/boot</span><br>    <span class="hljs-attr">username:</span> <span class="hljs-string">root</span><br>    <span class="hljs-attr">password:</span> <span class="hljs-string">mysql</span><br><br></code></pre></td></tr></table></figure>
+
+<p>4、resources文件夹中引入generatorConfig.xml，配置mybatis自动生成的一些参数</p>
+<p><img src="C:\Users\peng.zhou.TE\AppData\Roaming\Typora\typora-user-images\image-20211012091611796.png" srcset="/img/loading.gif" lazyload alt="image-20211012091611796"></p>
+<p>5、配置mybatis自动生成工具</p>
+<p><img src="C:\Users\peng.zhou.TE\AppData\Roaming\Typora\typora-user-images\image-20211012091827417.png" srcset="/img/loading.gif" lazyload alt="image-20211012091827417"></p>
+<p>6、在pom.xml中引入对应的生成工具插件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.mybatis.generator<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mybatis-generator-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.4.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br> <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>7、运行mybatis自动生成工具命令</p>
+<p><img src="C:\Users\peng.zhou.TE\AppData\Roaming\Typora\typora-user-images\image-20211012092031657.png" srcset="/img/loading.gif" lazyload alt="image-20211012092031657"></p>
+<p>在application.yml中配置mybatis</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">mybatis:</span><br>  <span class="hljs-attr">mapper-locations:</span> <span class="hljs-string">classpath:com/faw/mapper/*.xml</span><br></code></pre></td></tr></table></figure>
+
+<p>在ssm框架中，spring.xml中会进行以下配置，目的是扫描dao中的各个dao类</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;sqlSessionFactoryBeanName&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;sqlSessionFactory&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;basePackage&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;com.faw.dao&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>而在spring boot中，不会扫描dao文件夹下的dao类，因此，需要在dao中增加注解@mapper。或者在application启动类中增加@MapperScan(basePackages = “com.faw.mapper”)注解</p>
+<p>否则报以下错误</p>
+<p>Could not autowire. No beans of ‘UserMapper’ type found.</p>
+<p>控制台输出sql语句的配置</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment">#方式1</span><br><span class="hljs-attr">mybatis:</span><br>  <span class="hljs-attr">mapper-locations:</span> <span class="hljs-string">classpath:com/faw/mapper/*.xml</span><br>  <span class="hljs-attr">configuration:</span><br>    <span class="hljs-attr">log-impl:</span> <span class="hljs-string">org.apache.ibatis.logging.stdout.StdOutImpl</span><br>    <br><span class="hljs-comment">#方式2   </span><br><span class="hljs-attr">logging:</span><br>  <span class="hljs-attr">level:</span><br>    <span class="hljs-attr">com:</span><br>      <span class="hljs-attr">faw:</span><br>        <span class="hljs-attr">mapper:</span> <span class="hljs-string">debug</span><br></code></pre></td></tr></table></figure>
+
+<p>spring boot配置分页</p>
+<p>在pom.xml中引入jar</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.github.pagehelper<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>pagehelper-spring-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.2.5<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>     <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>spring boot集成Druid</p>
+<p>1、pom.xml中引入以下jar</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 德鲁伊数据源starter --&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.alibaba<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>druid-spring-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.2.8<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-comment">&lt;!-- aop监控 --&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-aop<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>2、在application.yml中配置</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">datasource:</span><br>    <span class="hljs-attr">driver-class-name:</span> <span class="hljs-string">com.mysql.jdbc.Driver</span><br>    <span class="hljs-attr">url:</span> <span class="hljs-string">jdbc:mysql://127.0.0.1:3308/boot</span><br>    <span class="hljs-attr">username:</span> <span class="hljs-string">root</span><br>    <span class="hljs-attr">password:</span> <span class="hljs-string">mysql</span><br>    <span class="hljs-attr">druid:</span><br>      <span class="hljs-comment"># 初始连接数</span><br>      <span class="hljs-attr">initialSize:</span> <span class="hljs-number">5</span><br>      <span class="hljs-comment"># 最小连接池数量</span><br>      <span class="hljs-attr">minIdle:</span> <span class="hljs-number">10</span><br>      <span class="hljs-comment"># 最大连接池数量</span><br>      <span class="hljs-attr">maxActive:</span> <span class="hljs-number">20</span><br>      <span class="hljs-comment"># 配置获取连接等待超时的时间</span><br>      <span class="hljs-attr">maxWait:</span> <span class="hljs-number">60000</span><br>      <span class="hljs-comment"># 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒</span><br>      <span class="hljs-attr">timeBetweenEvictionRunsMillis:</span> <span class="hljs-number">60000</span><br>      <span class="hljs-comment"># 配置一个连接在池中最小生存的时间，单位是毫秒</span><br>      <span class="hljs-attr">minEvictableIdleTimeMillis:</span> <span class="hljs-number">300000</span><br>      <span class="hljs-comment"># 配置一个连接在池中最大生存的时间，单位是毫秒</span><br>      <span class="hljs-attr">maxEvictableIdleTimeMillis:</span> <span class="hljs-number">900000</span><br>      <span class="hljs-comment"># 配置检测连接是否有效</span><br>      <span class="hljs-attr">validationQuery:</span> <span class="hljs-string">SELECT</span> <span class="hljs-number">1</span> <span class="hljs-string">FROM</span> <span class="hljs-string">DUAL</span><br>      <span class="hljs-attr">testWhileIdle:</span> <span class="hljs-literal">true</span><br>      <span class="hljs-attr">testOnBorrow:</span> <span class="hljs-literal">false</span><br>      <span class="hljs-attr">testOnReturn:</span> <span class="hljs-literal">false</span><br>      <span class="hljs-attr">webStatFilter:</span><br>        <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span><br>      <span class="hljs-attr">statViewServlet:</span><br>        <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span><br>        <span class="hljs-comment"># 设置白名单，不填则允许所有访问</span><br>        <span class="hljs-attr">allow:</span><br>        <span class="hljs-attr">url-pattern:</span> <span class="hljs-string">/druid/*</span><br>        <span class="hljs-comment"># 控制台管理用户名和密码</span><br>        <span class="hljs-attr">login-username:</span> <span class="hljs-string">admin</span><br>        <span class="hljs-attr">login-password:</span> <span class="hljs-number">123456</span><br>      <span class="hljs-attr">filter:</span><br>        <span class="hljs-attr">stat:</span><br>          <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span><br>          <span class="hljs-comment"># 慢SQL记录</span><br>          <span class="hljs-attr">log-slow-sql:</span> <span class="hljs-literal">true</span><br>          <span class="hljs-attr">slow-sql-millis:</span> <span class="hljs-number">1000</span><br>          <span class="hljs-attr">merge-sql:</span> <span class="hljs-literal">true</span><br>        <span class="hljs-attr">wall:</span><br>          <span class="hljs-attr">config:</span><br>            <span class="hljs-attr">multi-statement-allow:</span> <span class="hljs-literal">true</span><br>      <span class="hljs-attr">aop-patterns:</span> <span class="hljs-string">com.faw.mapper.*</span><br><br></code></pre></td></tr></table></figure>
+
+<p>访问德鲁伊监控网站</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html">http://localhost:8080/druid/sql.html<br></code></pre></td></tr></table></figure>
+
+<p>账号密码为:(可以在aplication.yml中自定义)</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">login-username:</span> <span class="hljs-string">admin</span><br><span class="hljs-attr">login-password:</span> <span class="hljs-number">12345</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\peng.zhou.TE\AppData\Roaming\Typora\typora-user-images\image-20211012140153281.png" srcset="/img/loading.gif" lazyload alt="image-20211012140153281"></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%8E%9F%E5%88%9B/">原创</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/01/20/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">测试文章</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/01/20/hello-world/">
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
